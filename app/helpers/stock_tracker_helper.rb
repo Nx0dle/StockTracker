@@ -1,0 +1,2 @@
+module StockTrackerHelper
+end
