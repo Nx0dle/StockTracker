@@ -6,8 +6,6 @@ class Stock < ApplicationRecord
       config.api_key = Rails.application.credentials.alphavantage[:api_key]
     end
 
-    quote = Alphavantage::TimeSeries.new(symbol: ticker_symbol).quote
-
-    quote.price
+    Alphavantage::TimeSeries.new(symbol: ticker_symbol).quote
   end
 end
