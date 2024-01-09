@@ -146,6 +146,8 @@ GEM
     faraday-retry (1.0.3)
     ffi (1.16.3)
     ffi (1.16.3-x64-mingw-ucrt)
+    font-awesome-rails (4.7.0.8)
+      railties (>= 3.2, < 8.0)
     globalid (1.2.1)
       activesupport (>= 6.1)
     hashie (4.1.0)
@@ -315,6 +317,7 @@ DEPENDENCIES
   debug
   devise
   devise-bootstrap-views (~> 1.0)
+  font-awesome-rails
   hirb
   importmap-rails
   jbuilder

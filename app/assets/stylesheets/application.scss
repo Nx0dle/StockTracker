@@ -12,6 +12,19 @@
  *
  *= require_tree .
  *= require_self
+ *= require font-awesome
  */
 
 @import 'bootstrap';
+
+.search-area {
+  padding: 50px;
+}
+
+.no-padding {
+  padding: 0;
+}
+
+.results-block {
+  display: inline-block;
+}
