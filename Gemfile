@@ -41,6 +41,8 @@ gem 'hirb'
 
 gem 'devise-bootstrap-views', '~> 1.0'
 
+gem 'alphavantage'
+
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem "tzinfo-data", platforms: %i[ windows jruby ]
 
