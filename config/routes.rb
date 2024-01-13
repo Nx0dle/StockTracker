@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :user_stocks
   devise_for :users
   root "stock_tracker#index"
   get "my_portfolio", to: "users#my_portfolio"
