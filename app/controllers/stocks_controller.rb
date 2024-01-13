@@ -3,16 +3,22 @@
 class StocksController < ApplicationController
   def search
     if params[:stock].present?
-      @stock = Stock.new_lookup(params[:stock])
+      @stock = Stock.iex_new_lookup(params[:stock])
       if @stock
-        render 'users/my_portfolio'
+        if turbo_frame_request? && turbo_frame_request_id == 'api-res'
+          render partial: 'users/result'
+        end
       else
-        flash[:alert] = "#{params[:stock]} is not a valid symbol."
-        redirect_to my_portfolio_path
+        if turbo_frame_request? && turbo_frame_request_id == 'api-res'
+          flash.now[:alert] = "#{params[:stock]} is not a valid symbol."
+          render partial: 'users/result'
+        end
       end
     else
-      flash[:alert] = "Please enter a symbol to search"
-      redirect_to my_portfolio_path
+      if turbo_frame_request? && turbo_frame_request_id == 'api-res'
+        flash.now[:alert] = "Please enter a symbol to search"
+        render partial: 'users/result'
+      end
     end
   end
 end

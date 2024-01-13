@@ -43,6 +43,8 @@ gem 'devise-bootstrap-views', '~> 1.0'
 
 gem 'alphavantage'
 
+gem 'iex-ruby-client'
+
 gem 'font-awesome-rails'
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

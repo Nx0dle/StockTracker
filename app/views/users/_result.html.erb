@@ -1,0 +1,12 @@
+<%= turbo_frame_tag "api-res" do %>
+  <div class="results-block">
+    <%= render 'layouts/flash' %>
+  </div>
+  <% if @stock %>
+    <div class="card card-header results-block">
+      <strong>Symbol: </strong><%= @stock.ticker %><br>
+      <strong>Name: </strong><%= @stock.name %><br>
+      <strong>Price: </strong><%= @stock.last_price %>
+    </div>
+  <% end %>
+<% end %>
