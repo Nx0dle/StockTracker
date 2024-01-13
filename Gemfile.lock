@@ -152,6 +152,9 @@ GEM
       activesupport (>= 6.1)
     hashie (4.1.0)
     hirb (0.7.3)
+    http-2-next (0.5.1)
+    httpx (0.24.7)
+      http-2-next (< 1.0.0)
     i18n (1.14.1)
       concurrent-ruby (~> 1.0)
     iex-ruby-client (2.1.0)
@@ -291,6 +294,8 @@ GEM
       actionpack (>= 6.0.0)
       activejob (>= 6.0.0)
       railties (>= 6.0.0)
+    twelvedata_ruby (0.3.0)
+      httpx (~> 0.14, >= 0.14.5)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
     tzinfo-data (1.2023.4)
@@ -338,6 +343,7 @@ DEPENDENCIES
   sqlite3 (~> 1.4)
   stimulus-rails
   turbo-rails
+  twelvedata_ruby
   tzinfo-data
   web-console
 

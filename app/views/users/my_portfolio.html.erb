@@ -15,5 +15,7 @@
   <% end %>
 </div>
 <%= turbo_frame_tag "api-res" do %>
-
+<% end %>
+<% unless @tracked_stocks.empty?%>
+  <%= render 'stocks/list' %>
 <% end %>

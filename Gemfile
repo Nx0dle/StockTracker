@@ -47,6 +47,8 @@ gem 'iex-ruby-client'
 
 gem 'font-awesome-rails'
 
+gem 'twelvedata_ruby'
+
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem "tzinfo-data", platforms: %i[ windows jruby ]
 
