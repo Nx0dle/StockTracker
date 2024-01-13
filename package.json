@@ -6,6 +6,7 @@
     "@popperjs/core": "^2.11.8",
     "@rails/ujs": "^7.1.2",
     "bootstrap": "5.3",
+    "brew": "^0.0.8",
     "jquery": "^3.7.1",
     "popper.js": "^1.16.1"
   }

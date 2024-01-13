@@ -6,7 +6,22 @@
     <div class="card card-header results-block">
       <strong>Symbol: </strong><%= @stock.ticker %><br>
       <strong>Name: </strong><%= @stock.name %><br>
-      <strong>Price: </strong><%= @stock.last_price %>
+      <strong>Price: </strong><%= @stock.last_price %><br>
+      <% if current_user.can_track_stock?(@stock.ticker) %>
+        <%= button_to 'Add to portfolio', user_stocks_path(user: current_user, ticker: @stock.ticker),
+                                      class: 'btn btn-success reload-action', method: :post,
+                                      data: {turbo_frame: "_top"}%>
+      <% else %>
+        <span class="badge text-bg-info">
+          You are already tracking
+          <% unless current_user.under_stock_limit? %>
+            10 stocks
+          <% end %>
+          <% if current_user.stock_tracked?(@stock.ticker) %>
+            this stock
+          <% end %>
+          </span>
+      <%  end %>
     </div>
   <% end %>
 <% end %>
