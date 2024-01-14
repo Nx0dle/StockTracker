@@ -34,3 +34,11 @@
 .logout-button {
   margin-right: 10px;
 }
+
+.full-name {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: .3rem;
+  padding: 0 1rem;
+}
