@@ -1,5 +1,5 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
-  <div class="container">
+<nav class="navbar navbar-expand-lg bg-body-tertiary px-3 py-2">
+  <div class="container-fluid">
     <%= link_to "Stock Tracker", root_path, class: 'navbar-brand' %>
     <% if current_user %>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
@@ -14,42 +14,34 @@
           <li class="nav-item">
             <a class="nav-link" href="#">Link</a>
           </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Account
-            </a>
-            <ul class="dropdown-menu">
-              <li>
-                <%= link_to "#", class: 'dropdown-item' do %>
-                  <%= fa_icon 'user' %> My profile
-                <% end %></li>
-              <li>
-                <%= link_to edit_user_registration_path, class: 'dropdown-item' do %>
-                  <%= fa_icon 'edit' %> Edit account
-                <% end %></li>
-              <li>
-                <hr class="dropdown-divider">
-              </li>
-              <li><a class="dropdown-item" href="#">Something else here</a></li>
-            </ul>
-          </li>
           <li class="nav-item">
             <a class="nav-link disabled" aria-disabled="true">Disabled</a>
           </li>
         </ul>
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item full-name">
-            <%= fa_icon 'user' %><%= current_user.full_name %>
-          </li>
-          <li class="nav-item">
-            <%= button_to "Logout", destroy_user_session_path, method: :delete,
-                          class: "btn btn-danger logout-button" %>
+        <ul class="navbar-nav d-flex">
+          <li class="nav-item dropdown">
+            <a class="btn btn-secondary dropdown-toggle d-flex gap-1 align-items-center" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <p class="m-0"><%= fa_icon 'user' %></p>
+              <p class="m-0"><%= current_user.full_name %></p>
+            </a>
+            <ul class="dropdown-menu">
+              <li>
+                <%= link_to "#", class: 'dropdown-item d-flex align-items-center gap-1' do %>
+                  <p class="m-0"><%= fa_icon 'user' %></p>
+                  <p class="m-0">My profile</p>
+                <% end %></li>
+              <li>
+                <%= link_to edit_user_registration_path, class: 'dropdown-item d-flex align-items-center gap-1' do %>
+                  <p class="m-0"><%= fa_icon 'edit' %> </p>
+                  <p class="m-0">Edit account</p>
+                <% end %></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><%= button_to "Sign Out", destroy_user_session_path, class: 'dropdown-item', method: :delete %></li>
+            </ul>
           </li>
         </ul>
-        <form class="d-flex" role="search">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success" type="submit">Search</button>
-        </form>
       </div>
     <% end %>
   </div>

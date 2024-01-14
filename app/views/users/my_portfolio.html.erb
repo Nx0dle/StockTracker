@@ -1,21 +1,23 @@
-<h1>My portfolio</h1>
-<div class="search-area">
-  <h3>Search Stocks</h3>
-  <%= form_tag search_stock_path, data: {turbo_frame: 'api-res'}, remote: true, method: :get do %>
-    <div class="form-group row">
-      <div class="col-sm-9 no-padding">
-        <%= text_field_tag :stock, params[:stock], placeholder: "Stock ticker...", autofocus: true, class: "form-control form-control-lg" %>
+<h1 class="px-3 py-4">My portfolio</h1>
+<main class="col-md-9 col-lg-12 d-flex flex-column align-items-center">
+  <div class="search-area col-8 col-md-6">
+    <h3>Search Stocks</h3>
+    <%= form_tag search_stock_path, data: {turbo_frame: 'api-res'}, remote: true, method: :get do %>
+      <div class="form-group row">
+        <div class="col-10 p-0">
+          <%= text_field_tag :stock, params[:stock], placeholder: "Stock ticker...", autofocus: true, class: "form-control form-control-lg" %>
+        </div>
+        <div class="col-2">
+          <%= button_tag type: :submit, class: "btn btn-success" do %>
+            <%= fa_icon 'search 2x' %>
+          <% end %>
+        </div>
       </div>
-      <div class="col-sm-3 no-padding">
-        <%= button_tag type: :submit, class: "btn btn-success" do %>
-          <%= fa_icon 'search 2x' %>
-        <% end %>
-      </div>
-    </div>
+    <% end %>
+  </div>
+  <%= turbo_frame_tag "api-res" do %>
   <% end %>
-</div>
-<%= turbo_frame_tag "api-res" do %>
-<% end %>
-<% unless @tracked_stocks.empty?%>
-  <%= render 'stocks/list' %>
-<% end %>
+  <% unless @tracked_stocks.empty?%>
+    <%= render 'stocks/list' %>
+  <% end %>
+</main>

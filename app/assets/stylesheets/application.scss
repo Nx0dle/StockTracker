@@ -26,6 +26,10 @@
   padding: 0;
 }
 
+.no-margin {
+  margin: 0;
+}
+
 .results-block {
   display: inline-block;
   margin-bottom: 1rem;
@@ -41,4 +45,28 @@
   align-items: center;
   gap: .3rem;
   padding: 0 1rem;
+}
+
+.rt {
+  @include media-breakpoint-down(lg) {
+    padding: rfs-fluid-value(.2rem);
+    font-size: rfs-fluid-value(1.2rem);
+  }
+
+  @include media-breakpoint-down(md) {
+    padding: rfs-fluid-value(.1rem);
+    font-size: rfs-fluid-value(.8rem);
+  }
+}
+
+.h1 {
+  @include media-breakpoint-down(lg) {
+    padding: rfs-fluid-value(.2rem);
+    font-size: rfs-fluid-value(2rem);
+  }
+
+  @include media-breakpoint-down(md) {
+    padding: rfs-fluid-value(.1rem);
+    font-size: rfs-fluid-value(1.7rem);
+  }
 }
