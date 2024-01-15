@@ -1,0 +1,30 @@
+<%= turbo_frame_tag "f-res" do %>
+  <div class="results-block">
+    <%= render 'layouts/flash' %>
+  </div>
+  <% if @friends %>
+    <div class="card card-header results-block">
+      <table class="col-md-12">
+        <tbody>
+          <% @friends.each do |friend| %>
+            <tr>
+              <td><strong>Name: </strong><%= friend.full_name %></td>
+              <td><strong>Email: </strong><%= friend.email %></td>
+              <td><strong>Actions: </strong><%= link_to 'View Profile', '#',
+                                                        class: 'btn btn-sm btn-success' %>
+                <% if current_user.not_friends_with?(friend.id) %>
+                  <%= button_to 'Follow', friendships_path(friend: friend),
+                            class: 'btn btn-sm btn-success', method: :post,
+                            data: {turbo_frame: "_top"} %></td>
+                <% else %>
+                  <span class="badge text-bg-info">
+                    You are friends
+                  </span>
+                <% end %>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  <% end %>
+<% end %>

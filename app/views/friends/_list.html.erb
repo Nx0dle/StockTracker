@@ -1,0 +1,28 @@
+<div class="col-12 col-md-12 mb-4 mb-lg-0 col-lg-10 mt-5">
+  <div class="card">
+    <h5 class="card-header">Following stocks</h5>
+    <div class="card-body">
+      <div class="table-responsive">
+        <table class="table table-hover">
+          <thead>
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Actions</th>
+          </tr>
+          </thead>
+          <tbody>
+          <% @followed_friends.each do |friend| %>
+            <tr>
+              <td><%= friend.full_name %></td>
+              <td><%= button_to "Unfollow", friendship_path(friend),
+                                method: :delete,
+                                data: { turbo_confirm: "Are you sure?" },
+                                class: 'btn btn-sm btn-warning'%></td>
+            </tr>
+          <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
