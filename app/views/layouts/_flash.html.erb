@@ -1,8 +1,6 @@
 <% flash.each do |message_type, message_content| %>
-  <main class="col-md-12 ml-sm-auto col-lg-12 px-md-4 py-4">
-    <div class="alert alert-<%= message_type == "alert" ? "danger" : "success" %> alert-dismissible fade show" role="alert">
-      <%= message_content %>
-      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-    </div>
-  </main>
+  <div class="col-10 mx-auto mt-2 alert alert-<%= message_type == "alert" ? "danger" : "success" %> alert-dismissible fade show" role="alert">
+    <p class="m-0"><%= message_content %></p>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
 <% end %>

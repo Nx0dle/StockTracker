@@ -1,0 +1,6 @@
+<h1><%= @user.full_name %></h1>
+<% unless @tracked_stocks.empty? %>
+  <%=  render 'stocks/list'  %>
+<% else %>
+  <p class="lead">This user is not tracking any stocks.</p>
+<% end %>

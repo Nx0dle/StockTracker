@@ -14,9 +14,6 @@
           <li class="nav-item">
             <%= link_to 'My Friends', my_friends_path, class:  request.path == my_friends_path ? 'nav-link active' : 'nav-link' %>
           </li>
-          <li class="nav-item">
-            <a class="nav-link disabled" aria-disabled="true">Disabled</a>
-          </li>
         </ul>
         <ul class="navbar-nav d-flex">
           <li class="nav-item dropdown">
@@ -26,7 +23,7 @@
             </a>
             <ul class="dropdown-menu">
               <li>
-                <%= link_to "#", class: 'dropdown-item d-flex align-items-center gap-1' do %>
+                <%= link_to user_path(current_user.id), class: 'dropdown-item d-flex align-items-center gap-1' do %>
                   <p class="m-0"><%= fa_icon 'user' %></p>
                   <p class="m-0">My profile</p>
                 <% end %></li>
