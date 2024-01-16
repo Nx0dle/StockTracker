@@ -16,7 +16,7 @@
               <td><%= friend.full_name %></td>
               <td><%= button_to "Unfollow", friendship_path(friend),
                                 method: :delete,
-                                data: { turbo_confirm: "Are you sure?" },
+                                data: { turbo: false },
                                 class: 'btn btn-sm btn-warning'%></td>
             </tr>
           <% end %>
