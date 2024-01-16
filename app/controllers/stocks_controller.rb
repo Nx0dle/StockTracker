@@ -3,7 +3,7 @@
 class StocksController < ApplicationController
   def search
     if params[:stock].present?
-      @stock = Stock.alpha_new_lookup(params[:stock])
+      @stock = Stock.twelve_data_new_lookup(params[:stock])
       if @stock
         if turbo_frame_request? && turbo_frame_request_id == 'api-res'
           render partial: 'users/result'

@@ -33,6 +33,26 @@ class Stock < ApplicationRecord
     end
   end
 
+  def self.twelve_data_new_lookup(ticker_symbol)
+    require 'httparty'
+    api_key = Rails.application.credentials.twelve_api[:secret_api_key]
+    endpoint = "https://api.twelvedata.com/"
+
+    company_response = HTTParty.get("#{endpoint}stocks?symbol=#{ticker_symbol}&apikey=#{api_key}")
+    response = HTTParty.get("#{endpoint}time_series?symbol=#{ticker_symbol}&interval=1min&outputsize=5000&apikey=#{api_key}")
+
+    if response.code == 200
+      company_body = JSON.parse(company_response.body)
+      company_name = company_body['data'].first['name']
+      data = JSON.parse(response.body)
+      new(ticker: data['meta']['symbol'], name: company_name, last_price: data['values'].last['close'].to_f.round(2))
+    else
+      return nil
+    end
+  rescue => exception
+    return nil
+  end
+
   def self.check_db(ticker_symbol)
     where(ticker: ticker_symbol).first
   end

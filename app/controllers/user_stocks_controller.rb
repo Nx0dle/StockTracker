@@ -2,7 +2,7 @@ class UserStocksController < ApplicationController
   def create
     stock = Stock.check_db(params[:ticker])
     if stock.blank?
-      stock = Stock.iex_new_lookup(params[:ticker])
+      stock = Stock.twelve_data_new_lookup(params[:ticker])
       stock.save
     end
     @user_stock = UserStock.create(user: current_user, stock: stock)
